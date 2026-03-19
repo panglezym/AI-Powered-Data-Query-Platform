@@ -305,7 +305,7 @@ ai-ask-data-platform/
 
 ## 📄 License
 
-MIT License · © Yongming Zhao
+MIT License · © 赵永明
 
 ---
 
