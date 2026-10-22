@@ -1,12 +1,13 @@
-# AI 问数平台 · AI-Poered Data Query Platform
+# AI 问数平台 · AI-Powered Data Query Platform
 
 > 让「不会写 SQL 的人」也能在 10 秒内得到可信的数据答案。  
 > *Natural language → trusted data insights, in under 10 seconds.*
 
-[![问数成功率](https://img.shields.io/badge/问数成功率-87.4%25-4CAF50?style=flat-square)](.)
-[![P95响应](https://img.shields.io/badge/P95响应-8.6s-3A78F2?style=flat-square)](.)
-[![MVP状态](https://img.shields.io/badge/状态-MVP%20上线-3A78F2?style=flat-square)](.)
-[![License](https://img.shields.io/badge/license-MIT-gray?style=flat-square)](.)
+[![状态](https://img.shields.io/badge/状态-高保真原型%20%2B%20PRD-3A78F2?style=flat-square)](.)
+
+> 这是一个 AI 产品经理的设计练习：仓库里是可交互的高保真原型（`index.html`）和 PRD，不含后端代码。文中的数字都是设计目标或原型里的示例数据。
+
+**👉 [在线预览](https://panglezym.github.io/AI-Powered-Data-Query-Platform/)**
 
 ---
 
@@ -168,14 +169,16 @@ WHERE dt = '2026-03-06'
 
 ---
 
-## 📊 核心运营指标
+## 📊 核心运营指标（设计目标）
 
-| 指标 | 当前值 | 目标 | 状态 |
-|------|--------|------|------|
-| 问数成功率 | **87.4%** | ≥ 85% | ✅ 达标 |
-| P95 响应时长 | **8.6s** | ≤ 10s | ✅ 达标 |
-| 澄清触发率 | **13.2%** | — | 监控中 |
-| 越权拦截次数 | **29 次** | — | 监控中 |
+| 指标 | 目标 | 原型示例值 |
+|------|------|-----------|
+| 问数成功率 | ≥ 85% | 87.4% |
+| P95 响应时长 | ≤ 10s | 8.6s |
+| 澄清触发率 | 持续监控 | 13.2% |
+| 越权拦截次数 | 持续监控 | 29 次 |
+
+> 示例值是原型 Dashboard 里展示用的数据，不是线上实测。
 
 ---
 
@@ -219,56 +222,18 @@ WHERE dt = '2026-03-06'
 
 ---
 
-## 🚀 快速开始
+## 🚀 怎么看
 
-```bash
-# 克隆项目
-git clone [https://github.com/your-org/ai-ask-data-platform.git
-cd ai-ask-data-platform](https://github.com/panglezym/AI-Powered-Data-Query-Platform/tree/main)
+- 在线预览：https://panglezym.github.io/AI-Powered-Data-Query-Platform/
+- 本地查看：下载 `index.html`，直接用浏览器打开
+- 完整需求：[AI问数平台_运营域MVP_PRD_V1.0.pdf](AI%E9%97%AE%E6%95%B0%E5%B9%B3%E5%8F%B0_%E8%BF%90%E8%90%A5%E5%9F%9FMVP_PRD_V1.0.pdf)
 
-# 安装依赖
-npm install
-
-# 配置环境变量
-cp .env.example .env
-# 编辑 .env，填写数据仓库连接、权限服务地址等配置
-
-# 本地开发启动
-npm run dev
-
-# 构建生产版本
-npm run build
-```
-
-**环境要求：**
-- Node.js ≥ 18
-- 数据仓库：ClickHouse / Hive（任选其一）
-- 权限服务：需对接企业组织树 API
-
----
-
-## 📁 项目结构
+## 📁 仓库内容
 
 ```
-ai-ask-data-platform/
-├── src/
-│   ├── pages/
-│   │   ├── dashboard/          # 经营总览 Dashboard
-│   │   ├── ask/                # AI 问数工作台
-│   │   ├── analysis/           # 数据分析页
-│   │   ├── metrics/            # 指标中心
-│   │   ├── datasource/         # 数据源管理
-│   │   ├── lineage/            # 数据血缘 / 元数据
-│   │   ├── permissions/        # 组织权限管理
-│   │   ├── governance/         # 问句治理中心
-│   │   └── settings/           # 系统设置
-│   ├── core/
-│   │   ├── semantic-layer/     # 指标语义层（同义词 / 歧义 / 默认口径）
-│   │   ├── rls/                # 行级权限注入引擎
-│   │   ├── query-dsl/          # Query DSL 生成 + 查询缓存
-│   │   └── ai-engine/          # AI 解释引擎（TL;DR 结构生成）
-│   └── components/             # 通用 UI 组件
-├── docs/                       # 产品文档 / 指标字典
+.
+├── index.html    # 高保真交互原型（9 个页面）
+├── AI问数平台_运营域MVP_PRD_V1.0.pdf    # 产品需求文档
 └── README.md
 ```
 
@@ -276,13 +241,13 @@ ai-ask-data-platform/
 
 ## 🗺️ Roadmap
 
-**MVP（当前）**
-- [x] AI 问数工作台（自然语言 → SQL → 结论）
-- [x] 指标语义层（5 个核心指标，86 条同义词，18 条歧义规则）
-- [x] 行级权限注入（三级组织树，SQL 层强制过滤）
-- [x] TL;DR 四段式回答结构
-- [x] 问句治理中心（失败分类 + 成功率监控）
-- [x] 经营总览 Dashboard
+**MVP 范围（原型已演示）**
+- AI 问数工作台（自然语言 → SQL → 结论）
+- 指标语义层（5 个核心指标，86 条同义词，18 条歧义规则）
+- 行级权限注入（三级组织树，SQL 层强制过滤）
+- TL;DR 四段式回答结构
+- 问句治理中心（失败分类 + 成功率监控）
+- 经营总览 Dashboard
 
 **二期规划**
 - [ ] 城市维度支持（当前仅支持组织维 / 渠道维）
@@ -293,9 +258,7 @@ ai-ask-data-platform/
 
 ---
 
-## 🤝 贡献指南
-
-欢迎提交 Issue 和 Pull Request。在贡献前请阅读：
+## 🛡️ 治理约束（给后续实现的要求）
 
 - **指标新增**：需在 `指标中心` 配置 metric_code、定义公式、时间字段、维度，并同步更新同义词词典
 - **权限变更**：任何涉及 org_id 过滤逻辑的修改必须经过安全审查，确保不引入越权漏洞
@@ -305,7 +268,7 @@ ai-ask-data-platform/
 
 ## 📄 License
 
-MIT License · © 赵永明
+仅供学习交流，转载请注明出处。© 赵永明
 
 ---
 
